@@ -1,9 +1,17 @@
-# PromptPath - LLM Navigator
+<p align="center">
+  <img src="assets/banner.svg" alt="PromptPath Banner" width="100%">
+</p>
 
-A Chrome extension that provides structured prompt history for multiple LLM platforms.
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/chrome-extension-yellow" alt="Chrome Extension">
+  <img src="https://img.shields.io/badge/manifest-v3-orange" alt="Manifest V3">
+</p>
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+<p align="center">
+  A Chrome extension that provides structured prompt history for multiple LLM platforms.
+</p>
 
 ## Features
 

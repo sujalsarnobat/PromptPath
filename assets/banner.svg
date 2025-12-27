@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10a37f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8ab4f8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4a574;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#grad2)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="700" cy="80" r="120" fill="#10a37f" opacity="0.1"/>
+  <circle cx="100" cy="320" r="100" fill="#8ab4f8" opacity="0.1"/>
+  <circle cx="650" cy="350" r="80" fill="#d4a574" opacity="0.1"/>
+  
+  <!-- Main Icon - Large chat bubble with path -->
+  <g transform="translate(250, 80)">
+    <!-- Chat bubble -->
+    <path d="M20 20 h80 a20 20 0 0 1 20 20 v50 a20 20 0 0 1 -20 20 h-50 l-30 30 v-30 h-20 a20 20 0 0 1 -20 -20 v-50 a20 20 0 0 1 20 -20" 
+          fill="url(#grad1)" opacity="0.95"/>
+    <!-- Path arrows inside bubble -->
+    <path d="M40 60 h40 M64 48 l16 12 l-16 12" stroke="#1a1a2e" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="30" cy="60" r="6" fill="#1a1a2e"/>
+  </g>
+  
+  <!-- Text: PromptPath -->
+  <text x="400" y="280" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="700">
+    <tspan fill="url(#grad1)">Prompt</tspan><tspan fill="#ffffff">Path</tspan>
+  </text>
+  
+  <!-- Tagline -->
+  <text x="400" y="330" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#888888">
+    Track, Navigate &amp; Export Your LLM Prompt History
+  </text>
+  
+  <!-- Platform badges -->
+  <g transform="translate(200, 355)">
+    <rect x="0" y="0" width="80" height="24" rx="12" fill="#10a37f" opacity="0.8"/>
+    <text x="40" y="16" text-anchor="middle" font-family="Arial" font-size="11" fill="white">ChatGPT</text>
+    
+    <rect x="90" y="0" width="65" height="24" rx="12" fill="#d4a574" opacity="0.8"/>
+    <text x="122" y="16" text-anchor="middle" font-family="Arial" font-size="11" fill="white">Claude</text>
+    
+    <rect x="165" y="0" width="65" height="24" rx="12" fill="#8ab4f8" opacity="0.8"/>
+    <text x="197" y="16" text-anchor="middle" font-family="Arial" font-size="11" fill="#1a1a2e">Gemini</text>
+    
+    <rect x="240" y="0" width="75" height="24" rx="12" fill="#6e40c9" opacity="0.8"/>
+    <text x="277" y="16" text-anchor="middle" font-family="Arial" font-size="11" fill="white">DeepSeek</text>
+    
+    <rect x="325" y="0" width="80" height="24" rx="12" fill="#10b981" opacity="0.8"/>
+    <text x="365" y="16" text-anchor="middle" font-family="Arial" font-size="11" fill="white">Perplexity</text>
+  </g>
+</svg>
