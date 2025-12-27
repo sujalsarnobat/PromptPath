@@ -1,0 +1,21 @@
+<!-- Create with HTML Canvas and save as PNG -->
+<canvas id="icon16" width="16" height="16"></canvas>
+<script>
+  const canvas = document.getElementById('icon16');
+  const ctx = canvas.getContext('2d');
+  
+  // Blue gradient background
+  const gradient = ctx.createLinearGradient(0, 0, 16, 16);
+  gradient.addColorStop(0, '#10a37f');
+  gradient.addColorStop(1, '#0c6b58');
+  
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 16, 16);
+  
+  // White "P" letter
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 10px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('P', 8, 8);
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create PromptPath Icons</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .icon-container { display: flex; gap: 20px; margin: 20px 0; }
+        canvas { border: 1px solid #ccc; }
+        button { padding: 10px 20px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Create PromptPath Icons</h2>
+    <p>Click each button to create and download icons</p>
+    
+    <div class="icon-container">
+        <div>
+            <canvas id="icon16" width="16" height="16"></canvas><br>
+            <button onclick="downloadIcon(16)">Download icon16.png</button>
+        </div>
+        <div>
+            <canvas id="icon48" width="48" height="48"></canvas><br>
+            <button onclick="downloadIcon(48)">Download icon48.png</button>
+        </div>
+        <div>
+            <canvas id="icon128" width="128" height="128"></canvas><br>
+            <button onclick="downloadIcon(128)">Download icon128.png</button>
+        </div>
+    </div>
+    
+    <script>
+        // Create icon16
+        const ctx16 = document.getElementById('icon16').getContext('2d');
+        ctx16.fillStyle = '#10a37f';
+        ctx16.fillRect(0, 0, 16, 16);
+        ctx16.fillStyle = '#ffffff';
+        ctx16.font = 'bold 9px Arial';
+        ctx16.textAlign = 'center';
+        ctx16.textBaseline = 'middle';
+        ctx16.fillText('PP', 8, 8);
+        
+        // Create icon48
+        const ctx48 = document.getElementById('icon48').getContext('2d');
+        const gradient48 = ctx48.createLinearGradient(0, 0, 48, 48);
+        gradient48.addColorStop(0, '#10a37f');
+        gradient48.addColorStop(1, '#0c6b58');
+        ctx48.fillStyle = gradient48;
+        ctx48.fillRect(0, 0, 48, 48);
+        
+        // Draw chat bubbles
+        ctx48.fillStyle = '#ffffff';
+        ctx48.beginPath();
+        ctx48.arc(18, 18, 8, 0, Math.PI * 2);
+        ctx48.fill();
+        ctx48.beginPath();
+        ctx48.arc(30, 30, 6, 0, Math.PI * 2);
+        ctx48.fill();
+        
+        // Create icon128
+        const ctx128 = document.getElementById('icon128').getContext('2d');
+        const gradient128 = ctx128.createLinearGradient(0, 0, 128, 128);
+        gradient128.addColorStop(0, '#10a37f');
+        gradient128.addColorStop(0.5, '#0c8b6f');
+        gradient128.addColorStop(1, '#0a4d3c');
+        ctx128.fillStyle = gradient128;
+        ctx128.fillRect(0, 0, 128, 128);
+        
+        // Draw path icon
+        ctx128.strokeStyle = '#ffffff';
+        ctx128.lineWidth = 8;
+        ctx128.lineCap = 'round';
+        ctx128.beginPath();
+        ctx128.moveTo(30, 30);
+        ctx128.lineTo(60, 30);
+        ctx128.lineTo(60, 60);
+        ctx128.lineTo(90, 60);
+        ctx128.lineTo(90, 90);
+        ctx128.lineTo(98, 98);
+        ctx128.stroke();
+        
+        function downloadIcon(size) {
+            const canvas = document.getElementById(`icon${size}`);
+            const link = document.createElement('a');
+            link.download = `icon${size}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Auto-download all icons
+        setTimeout(() => {
+            downloadIcon(16);
+            setTimeout(() => downloadIcon(48), 500);
+            setTimeout(() => downloadIcon(128), 1000);
+        }, 1000);
+    </script>
+</body>
+</html>

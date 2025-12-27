@@ -1,0 +1,204 @@
+/* Base CSS variables for sidebar to ensure stable styling */
+:root {
+  --accent-color: #10a37f;
+  --border-color: #e0e0e0;
+  --text-secondary: #666666;
+  --bg-secondary: #f8f9fa;
+  --sidebar-width: 280px;
+}
+
+/* Core sidebar styles */
+.promptpath-sidebar {
+  position: fixed;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background: #ffffff;
+  color: #333333;
+  border-left: 1px solid var(--border-color);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+  z-index: 999999;
+}
+
+.promptpath-sidebar.right { right: 0; }
+.promptpath-sidebar.left { left: 0; border-left: none; border-right: 1px solid var(--border-color); }
+
+.promptpath-sidebar.hidden {
+  transform: translateX(100%);
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 120px;
+  background: var(--accent-color);
+  color: #ffffff;
+  padding: 6px 8px;
+  border-radius: 6px 0 0 6px;
+  cursor: pointer;
+  z-index: 1000000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.toggle-btn.right { right: var(--sidebar-width); border-radius: 6px 0 0 6px; }
+.toggle-btn.left { left: var(--sidebar-width); border-radius: 0 6px 6px 0; }
+
+/* When sidebar is collapsed, pin toggle to the page edge */
+.toggle-btn.collapsed.right { right: 0; }
+.toggle-btn.collapsed.left { left: 0; }
+
+.sidebar-header {
+  padding: 12px 12px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-title {
+  font-weight: 600;
+}
+
+.llm-badge {
+  margin-left: 8px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--accent-color);
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.prompt-list {
+  flex: 1;
+  overflow: auto;
+  padding: 8px;
+}
+
+.prompt-item {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  background: var(--bg-secondary);
+  cursor: pointer;
+}
+
+.prompt-item.active {
+  outline: 2px solid var(--accent-color);
+}
+
+.prompt-text {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.response-preview {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prompt-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.sidebar-controls {
+  border-top: 1px solid var(--border-color);
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.control-btn {
+  flex: 1;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Distinct colors for visibility */
+#clearBtn { background: #ef4444; }
+#clearBtn:hover { background: #dc2626; }
+
+#exportBtn { background: #3b82f6; }
+#exportBtn:hover { background: #2563eb; }
+
+.promptpath-sidebar.dark-mode {
+  background: #121212;
+  color: #e5e5e5;
+}
+
+.promptpath-sidebar.dark-mode .prompt-item {
+  background: #1e1e1e;
+  border-color: #2a2a2a;
+}
+
+.promptpath-sidebar.dark-mode .sidebar-header {
+  border-color: #2a2a2a;
+}
+
+.promptpath-sidebar.dark-mode .response-preview {
+  color: #aaaaaa;
+}
+
+/* Additional responsive styles */
+@media (max-width: 768px) {
+  .promptpath-sidebar {
+    width: 250px;
+  }
+}
+
+/* Scrollbar styling */
+.prompt-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.prompt-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.prompt-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.prompt-list::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Animation for new prompts */
+@keyframes highlightNew {
+  0% { background-color: rgba(16, 163, 127, 0.2); }
+  100% { background-color: var(--bg-secondary); }
+}
+
+.prompt-item.new {
+  animation: highlightNew 1s ease;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}

@@ -1,0 +1,33 @@
+<canvas id="icon48" width="48" height="48"></canvas>
+<script>
+  const canvas = document.getElementById('icon48');
+  const ctx = canvas.getContext('2d');
+  
+  // Circular gradient background
+  const gradient = ctx.createRadialGradient(24, 24, 0, 24, 24, 24);
+  gradient.addColorStop(0, '#10a37f');
+  gradient.addColorStop(1, '#0a4d3c');
+  
+  ctx.fillStyle = gradient;
+  ctx.beginPath();
+  ctx.arc(24, 24, 24, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Conversation bubbles
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.arc(18, 18, 8, 0, Math.PI * 2); // Left bubble
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.arc(30, 30, 6, 0, Math.PI * 2); // Right bubble
+  ctx.fill();
+  
+  // Connecting line
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(22, 22);
+  ctx.lineTo(28, 28);
+  ctx.stroke();
+</script>
